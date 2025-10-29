@@ -2,7 +2,7 @@ using NorthWindApi.Repositories;
 using NorthWindApi.Dtos;
 namespace NorthWindApi.Services;
 
-public class CustomerService(ICustomerRepository repository)
+public class CustomerService(ICustomerRepository repository): ICustomerService
 {
     private readonly ICustomerRepository _repository = repository;
 

@@ -1,16 +1,11 @@
 using NorthWindApi.Models;
 using Microsoft.Data.SqlClient;
-using System.Xml;
+
 namespace NorthWindApi.Repositories;
 
-public class CustomerRepository : ICustomerRepository
+public class CustomerRepository(IConfiguration configuration) : ICustomerRepository
 {
-    private readonly string? _connectionString;
-
-    public CustomerRepository(IConfiguration configuration)
-    {
-        _connectionString = configuration.GetConnectionString("NorthWind");
-    }
+    private readonly string? _connectionString = configuration.GetConnectionString("NorthWind");
 
     public async Task<IEnumerable<Customer>> GetAllAsync()
     {

@@ -1,5 +1,4 @@
 namespace NorthWindApi.Models;
-using NorthWindApi.Models;
 
 public class Customer : Person
 {
